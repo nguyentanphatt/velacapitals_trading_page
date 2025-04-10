@@ -2,6 +2,7 @@
 
 @theme {
   --font-ppmori: 'PPMori', sans-serif;
+  --color-white-cream: #f4ecd7;
   --breakpoint-sm: 375px;
   --breakpoint-md: 768px;
   --breakpoint-lg: 1200px;
@@ -26,35 +27,35 @@
 
 @font-face {
   font-family: 'PPMori';
-  src: url('/fonts/PPMori/PPMori-RegularItalic.otf') format('opentype');
+  src: url('../public/fonts/PPMori-RegularItalic.otf') format('opentype');
   font-weight: 400;
   font-style: italic;
 }
 
 @font-face {
   font-family: 'PPMori';
-  src: url('/fonts/PPMori/PPMori-Extralight.otf') format('opentype');
+  src: url('../public/fonts/PPMori-Extralight.otf') format('opentype');
   font-weight: 200;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'PPMori';
-  src: url('/fonts/PPMori/PPMori-ExtralightItalic.otf') format('opentype');
+  src: url('../public/fonts/PPMori-ExtralightItalic.otf') format('opentype');
   font-weight: 200;
   font-style: italic;
 }
 
 @font-face {
   font-family: 'PPMori';
-  src: url('/fonts/PPMori/PPMori-SemiBold.otf') format('opentype');
+  src: url('../public/fonts/PPMori-SemiBold.otf') format('opentype');
   font-weight: 600;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'PPMori';
-  src: url('/fonts/PPMori/PPMori-SemiBoldItalic.otf') format('opentype');
+  src: url('../public/fonts/PPMori-SemiBoldItalic.otf') format('opentype');
   font-weight: 600;
   font-style: italic;
 }

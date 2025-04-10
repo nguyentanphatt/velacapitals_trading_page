@@ -25,7 +25,7 @@ const HeroSection = () => {
                 initial={{ y: "100%" }}
                 animate={{ y: "-100%" }}
                 transition={{ duration: 0.7, ease: "easeInOut" }}
-                className="absolute top-0 left-0 w-full h-screen bg-orange-400 z-30"
+                className="absolute top-0 left-0 w-full h-screen bg-[#f85a3e] z-30"
               />
               <motion.div
                 initial={{ y: "100%" }}
@@ -83,7 +83,6 @@ const CenterImage = () => {
   return (
     <motion.div
       className="sticky top-0 flex items-center justify-center w-full h-screen"
-      style={{ opacity }}
     >
       <div className="absolute inset-0 flex flex-col justify-between pointer-events-none">
         <div className="z-0">
@@ -174,7 +173,6 @@ const CenterImage = () => {
         </div>
       </div>
 
-      {/* Video */}
       <motion.video
         src="https://velacapitals.com/_nuxt/hero.DsBaArry.mp4"
         autoPlay
