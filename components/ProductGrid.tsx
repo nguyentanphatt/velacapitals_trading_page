@@ -104,13 +104,13 @@ const ProductGrid = () => {
         </div>
         {/* Hover bridge */}
         <div
-          className="absolute top-0 left-[calc(50%-20px)] w-20 h-full"
+          className="absolute z-10 top-0 left-[calc(50%-20px)] w-20 h-full"
           onMouseEnter={() => setHoveredIndex(hoveredIndex)}
           onMouseLeave={() => setHoveredIndex(null)}
         ></div>
         {/* Layer 2: Absolute content */}
         <div
-          className="absolute top-0 left-0 w-1/2 h-auto overflow-hidden transition-all duration-300"
+          className="absolute z-10 top-0 left-0 w-1/2 h-auto overflow-hidden transition-all duration-300"
           onMouseEnter={() => setHoveredIndex(hoveredIndex)} // giữ nguyên index
           onMouseLeave={() => setHoveredIndex(null)}
         >
