@@ -6,4 +6,4 @@ The original website design belongs to velacapitals website by Digicomm. I only 
 Here is the owner's website link: https://velacapitals.com/
 
 ## Live Demo
-https://velacapitals_trading_page.vercel.app/
+https://velacapitals-trading-page.vercel.app/
