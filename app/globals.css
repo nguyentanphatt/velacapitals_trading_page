@@ -8,6 +8,16 @@
   --breakpoint-lg: 1200px;
   --breakpoint-xl: 1440px;
   --animate-move-left: move-left 1s linear infinite;
+  --text-p4: calc(.75188rem + .17679vw);
+  --text-p3: calc(.7525rem + .23571vw);   
+  --text-p2: calc(.75375rem + .35357vw);   
+  --text-p1: calc(.7575rem + .70714vw);    
+  --text-h6: calc(.76125rem + 1.06071vw); 
+  --text-h5: calc(.80125rem + 4.83214vw);  
+  --text-h4: calc(.8175rem + 6.36429vw);  
+  --text-h3: calc(0.87375rem + 11.6679vw); 
+  --text-h2: calc(.8925rem + 13.43571vw);  
+  --text-h1: calc(0.87375rem + 11.6679vw); 
 }
 
 @keyframes move-left {

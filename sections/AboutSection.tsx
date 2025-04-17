@@ -22,20 +22,18 @@ const InfoSection = () => {
           <div className="grid auto-rows-auto gap-1 lg:grid-cols-12 lg:gap-x-[20px]">
             <div className="lg:col-span-5 lg:grid lg:grid-rows-4 flex flex-col">
               <motion.span
-                className="row-span-1"
+                className="row-span-1 text-h3"
                 style={{
                   y: slowY01,
-                  fontSize: `calc(0.87375rem + 11.6679vw)`,
                   lineHeight: 1,
                 }}
               >
                 01
               </motion.span>
               <motion.span
-                className="row-span-3"
+                className="row-span-3 text-h3"
                 style={{
                   y: slowY01,
-                  fontSize: `calc(0.87375rem + 11.6679vw)`,
                   lineHeight: 1,
                 }}
               >
@@ -45,8 +43,7 @@ const InfoSection = () => {
             <div className="hidden lg:block lg:col-span-2"></div>
             <div className="lg:col-span-5 lg:grid lg:grid-rows-4">
               <p
-                className="font-ppmori lg:col-span-5 lg:row-start-2 lg:row-end-5"
-                style={{ fontSize: `calc(.76125rem + 1.06071vw)` }}
+                className="text-h6 font-ppmori lg:col-span-5 lg:row-start-2 lg:row-end-5"
               >
                 Vela Capitals stands as a leader in independent trading and
                 brokerage, distinguished by over a decade of industry expertise.

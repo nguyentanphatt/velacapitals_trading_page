@@ -11,7 +11,6 @@ export const StaggerSVG = ({ children }: { children: ReactNode }) => {
       whileHover="hovered"
       className="overflow-visible"
     >
-      {/* Original position */}
       <motion.g
         variants={{
           initial: { x: 0 },
@@ -25,8 +24,6 @@ export const StaggerSVG = ({ children }: { children: ReactNode }) => {
       >
         {children}
       </motion.g>
-
-      {/* Slide-in copy */}
       <motion.g
         variants={{
           initial: { x: "-100%" },

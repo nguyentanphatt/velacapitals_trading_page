@@ -1,4 +1,3 @@
-import { div } from "motion/react-client";
 import { motion } from "framer-motion";
 import React from "react";
 import { twMerge } from "tailwind-merge";
@@ -17,8 +16,6 @@ const StaggerText = ({
 }) => {
   return (
     <motion.a
-      //initial="initial"
-      //whileHover="hovered"
       className={twMerge(
         "relative block overflow-hidden whitespace-nowrap",
         className

@@ -1,80 +1,14 @@
 "use client";
 import React, { useState } from "react";
-import { useScroll, useTransform, motion } from "motion/react";
-import {
-  product01,
-  product02,
-  product03,
-  product04,
-  product05,
-  product06,
-  product07,
-} from "@/constants/image";
+import {motion } from "motion/react";
 import GroupHover from "./GroupHover";
 import Image from "next/image";
-const produceData = [
-  {
-    id: 1,
-    number: "(01)",
-    title: "Rapeseed oil",
-    content:
-      "Our rapeseed oil is sourced to meet the rigorous standards of the food and manufacturing industries, offering a product that is renowned for its purity, stability, and consistent quality. Ideal for large-scale culinary and commercial applications, it provides a nutritious, versatile base for an extensive range of products.",
-    image: product01,
-  },
-  {
-    id: 2,
-    number: "(02)",
-    title: "Ammonia",
-    content:
-      "As a fundamental chemical in the agricultural and industrial sectors, our ammonia is produced to the highest safety and quality standards, ensuring it meets the stringent requirements for fertilizers and various chemical synthesis processes.",
-    image: product02,
-  },
-  {
-    id: 3,
-    number: "(03)",
-    title: "Sunflower oil",
-    content:
-      "Our sunflower oil is a high-quality product that serves the expansive needs of the food industry with its neutral flavor profile and nutritional value, making it a preferred choice for wholesalers and food processors.",
-    image: product03,
-  },
-  {
-    id: 4,
-    number: "(04)",
-    title: "Soya old",
-    content:
-      "Extracted from meticulously selected soybeans, our soya oil is a nutritionally rich ingredient known for its culinary flexibility and industrial applicability, particularly valued for its use in cooking, baking, and as a raw material in various chemical industries.",
-    image: product04,
-  },
-  {
-    id: 5,
-    number: "(05)",
-    title: "Feed meals",
-    content:
-      "Our feed meals provide a robust nutritional foundation for animal feed formulations. They are designed to optimize the health and productivity of livestock, meeting the demands of agricultural businesses for high-quality feed.",
-    image: product05,
-  },
-  {
-    id: 6,
-    number: "(06)",
-    title: "Methanol / Ethanol",
-    content:
-      "These fundamental industrial alcohols are supplied with a guarantee of purity and consistency, suitable for a wide range of applications, including as solvents, fuel additives, and in chemical manufacturing.",
-    image: product06,
-  },
-  {
-    id: 7,
-    number: "(07)",
-    title: "Mining materials",
-    content:
-      "We offer a comprehensive selection of mining materials, sourced to support the ongoing operations of the construction and manufacturing sectors. Our portfolio ensures a reliable supply of essential raw materials needed for production and infrastructure projects.",
-    image: product07,
-  },
-];
+import { productData } from "@/constants/data";
 const ProductList = () => {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
   return (
     <div className="block md:hidden">
-      {produceData.map((item, index) => {
+      {productData.map((item, index) => {
         const isOpen = openIndex === index;
         return (
           <div

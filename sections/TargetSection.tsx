@@ -1,47 +1,13 @@
 "use client";
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { useScroll, useTransform, motion, AnimatePresence } from "motion/react";
 import ArrowLeft from "@/public/icon/arrow-left.svg";
 import ArrowRight from "@/public/icon/arrow-right.svg";
-import china from '@/public/image/china.png'
-import india from '@/public/image/india.png'
-import europe from '@/public/image/europe.png'
-import { text } from "stream/consumers";
-const marketData = [
-    {
-        id: 1,
-        number: "01",
-        video: "https://velacapitals.com/_nuxt/market-eu.C6KoyQJG.mp4",
-        title: "Europe",
-        description:
-            "Vela Capitals is adept at navigating the exacting standards of European clientele. Our approach is defined by precision and an unwavering commitment to meeting the sophisticated needs of this market with expertly tailored services",
-        image: china,
-        text: "China"
-    },
-    {
-        id: 2,
-        number: "02",
-        video: "https://velacapitals.com/_nuxt/market-zh.DY3m0nVM.mp4",
-        title: "China",
-        description:
-            "As the Chinese market evolves, so does our engagement, mirroring the rapid growth and dynamic changes in its commodities sector. Vela Capitals is strategically positioned to welcome new clients and expand our presence in this vibrant market with responsive and forward-thinking solutions.",
-        image: india,
-        text:"India"
-    },
-    {
-        id: 3,
-        number: "03",
-        video: "https://velacapitals.com/_nuxt/market-in.B13lhf97.mp4",
-        title: "India",
-        description:
-            "The Indian market is emerging from the global backdrop as a standalone force in commodities, diversifying its sources and expanding its reach. Vela Capitals supports this shift, offering strategic guidance to channel commodities effectively, with special expertise in navigating supplies from Russia and Belarus.",
-        image: europe,
-        text: "Europe"
-    }
-]
+import { marketData } from "@/constants/data";
+
 const TargetSection = () => {
-    const [isNext, setIsNext] = useState(1);
-    const [direction, setDirection] = useState(0);
+  const [isNext, setIsNext] = useState(1);
+  const [direction, setDirection] = useState(0);
   const ref = useRef(null);
   const scroll = useScroll({
     target: ref,
@@ -80,8 +46,33 @@ const TargetSection = () => {
       opacity: 0,
     }),
   };
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    if (videoRef.current && currentInfo?.video) {
+      videoRef.current.src = currentInfo.video;
+      videoRef.current.load();
+      videoRef.current.play().catch(() => {});
+    }
+  }, [currentInfo?.video]);
+  const [isAnimating, setIsAnimating] = useState(false);
+  const handleChangeInfo = (direction: string) => {
+    if (isAnimating) return;
+    setIsAnimating(true);
+
+    setTimeout(() => {
+      direction === "next" ? nextInfo() : prevInfo();
+    }, 250);
+
+    setTimeout(() => {
+      setIsAnimating(false);
+    }, 600);
+  };
   return (
-    <div className="h-auto bg-[#191810]" style={{padding: "calc(.8275rem + 7.30714vw) 0px"}}>
+    <div
+      className="h-auto bg-[#191810]"
+      style={{ padding: "calc(.8275rem + 7.30714vw) 0px" }}
+    >
       <div
         className="pt-[50px]"
         style={{ paddingTop: `calc(0.8275rem + 7.30714vw) 0px` }}
@@ -90,10 +81,9 @@ const TargetSection = () => {
           <div className="lg:hidden grid auto-rows-auto gap-1">
             <div className="flex flex-col lg:col-span-12 lg:row-span-1">
               <motion.span
-                className=" text-white-cream"
+                className=" text-white-cream text-h3"
                 style={{
                   y: slowY,
-                  fontSize: `calc(0.87375rem + 11.6679vw)`,
                   lineHeight: 1,
                 }}
               >
@@ -101,10 +91,9 @@ const TargetSection = () => {
               </motion.span>
 
               <motion.span
-                className=" text-white-cream"
+                className=" text-white-cream text-h3"
                 style={{
                   y: slowY,
-                  fontSize: `calc(0.87375rem + 11.6679vw)`,
                   lineHeight: 1,
                 }}
               >
@@ -112,10 +101,7 @@ const TargetSection = () => {
               </motion.span>
             </div>
             <div className="lg:col-span-5 lg:grid lg:grid-rows-4 lg:row-span-3">
-              <p
-                className="font-ppmori text-white-cream lg:col-span-5 lg:row-start-1 lg:row-end-5"
-                style={{ fontSize: `calc(.76125rem + 1.06071vw)` }}
-              >
+              <p className="text-h6 font-ppmori text-white-cream lg:col-span-5 lg:row-start-1 lg:row-end-5">
                 We excel in regions with strong sourcing networks that afford
                 seamless integration with global supply chains, ensuring
                 efficient market access.
@@ -125,10 +111,9 @@ const TargetSection = () => {
           <div className="hidden lg:grid lg:auto-rows-auto lg:gap-1 lg:grid-cols-12 lg:gap-x-[20px]">
             <div className="lg:col-span-7">
               <motion.span
-                className=" text-white-cream"
+                className=" text-white-cream text-h3"
                 style={{
                   y: slowY,
-                  fontSize: `calc(0.87375rem + 11.6679vw)`,
                   lineHeight: 1,
                 }}
               >
@@ -139,19 +124,15 @@ const TargetSection = () => {
             <div className="lg:col-span-2">
               <div>
                 <motion.span
-                  className=" text-white-cream"
+                  className=" text-white-cream text-h3"
                   style={{
                     y: slowY,
-                    fontSize: `calc(0.87375rem + 11.6679vw)`,
                     lineHeight: 1,
                   }}
                 >
                   04
                 </motion.span>
-                <p
-                  className="font-ppmori text-white-cream lg:col-span-5 lg:row-start-1 lg:row-end-5"
-                  style={{ fontSize: `calc(.75188rem + .17679vw)` }}
-                >
+                <p className="text-p4 font-ppmori text-white-cream lg:col-span-5 lg:row-start-1 lg:row-end-5">
                   We excel in regions with strong sourcing networks that afford
                   seamless integration with global supply chains, ensuring
                   efficient market access.
@@ -162,24 +143,40 @@ const TargetSection = () => {
           <div
             className="block lg:hidden"
             style={{ paddingTop: "calc(.8275rem + 7.30714vw)" }}
-          ></div>
-          <div className="flex flex-col lg:grid lg:grid-cols-12 lg:gap-x-[20px]" style={{paddingTop:"calc(.8275rem + 7.30714vw);"}}>
-            <div className="flex flex-col lg:col-span-5" style={{paddingTop: "calc(.785rem + 3.3vw);"}}>
+          />
+          <div
+            className="flex flex-col lg:grid lg:grid-cols-12 lg:gap-x-[20px]"
+            style={{ paddingTop: "calc(.8275rem + 7.30714vw);" }}
+          >
+            <div
+              className="flex flex-col lg:col-span-5"
+              style={{ paddingTop: "calc(.785rem + 3.3vw);" }}
+            >
               <div className="w-[328px] h-full md:w-full">
-                <video
-                  src={currentInfo?.video}
-                  autoPlay
-                  loop
-                  muted
-                  playsInline
-                />
+                <div className="relative">
+                  <motion.div
+                    initial={false}
+                    animate={{ x: isAnimating ? "0%" : "100%" }}
+                    //animate={{x:'100%'}}
+                    transition={{ duration: 0.6, ease: "easeInOut" }}
+                    className="absolute top-0 left-0 w-full h-full bg-[#191810] z-30 pointer-events-none"
+                  />
+                  <video
+                    //src={currentInfo?.video}
+                    ref={videoRef}
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    className="transition-opacity duration-300 opacity-100"
+                  />
+                </div>
               </div>
               <div style={{ paddingTop: "calc(.785rem + 3.3vw);" }}>
-                <h3 className="text-[1.167em] text-white-cream">{currentInfo?.title}</h3>
-                <p
-                  className="mt-[1em] text-white-cream"
-                  style={{ fontSize: "calc(.7575rem + .70714vw)" }}
-                >
+                <h3 className="text-[1.167em] text-white-cream">
+                  {currentInfo?.title}
+                </h3>
+                <p className="text-p1 mt-[1em] text-white-cream">
                   {currentInfo?.description}
                 </p>
               </div>
@@ -187,41 +184,44 @@ const TargetSection = () => {
             <div className="hidden lg:block lg:col-span-4" />
             <div className="lg:col-span-3">
               <div className="lg:flex lg:flex-col-reverse">
-                <div className="flex items-center gap-2 w-full h-[77px]">
+                <div className="z-50 flex items-center gap-2 w-full h-[77px]">
                   <div
-                  onClick={() => prevInfo()}
+                    onClick={() => handleChangeInfo("prev")}
+                    className="cursor-pointer"
                   >
                     <ArrowLeft className="w-[37px] h-[37px] text-[#f85a3e] overflow-visible" />
                   </div>
-                  <p
-                    className="text-white-cream font-light"
-                    style={{ fontSize: `calc(.75375rem + .35357vw);` }}
-                  >
+                  <p className="text-p2 text-white-cream font-light">
                     {currentInfo?.number} / 03
                   </p>
-                  <div
-                  onClick={() => nextInfo()}
-                  >
+                  <div onClick={() => handleChangeInfo("next")} className="cursor-pointer">
                     <ArrowRight className="w-[37px] h-[37px] text-[#f85a3e] overflow-visible" />
                   </div>
                 </div>
-                <div className=" w-full" style={{backgroundImage: `url(${currentInfo?.image.src})`, backgroundSize: "cover", backgroundPosition: "center"}}> 
+                <div
+                  className=" w-full z-50"
+                  style={{
+                    backgroundImage: `url(${currentInfo?.image.src})`,
+                    backgroundSize: "cover",
+                    backgroundPosition: "center",
+                  }}
+                >
                   <div className="p-4">
                     <div className="text-white-cream flex items-center justify-center aspect-[5/1] lg:aspect-[1052/712] ">
                       <AnimatePresence custom={direction} mode="wait">
-                      <motion.p
-                        key={currentInfo?.id}
-                        custom={direction}
-                        variants={variants}
-                        initial="enter"
-                        animate="center"
-                        exit="exit"
-                        transition={{ duration: 0.4 }}
-                        style={{ fontSize: "calc(.7575rem + .70714vw)" }}
-                      >
-                        {currentInfo?.text}
-                      </motion.p>
-                    </AnimatePresence>
+                        <motion.p
+                          key={currentInfo?.id}
+                          custom={direction}
+                          variants={variants}
+                          initial="enter"
+                          animate="center"
+                          exit="exit"
+                          transition={{ duration: 0.4 }}
+                          className="text-p1"
+                        >
+                          {currentInfo?.text}
+                        </motion.p>
+                      </AnimatePresence>
                     </div>
                   </div>
                 </div>

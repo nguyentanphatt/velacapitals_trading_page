@@ -4,64 +4,8 @@ import React, { useEffect, useRef, useState } from "react";
 import ArrowLeft from "@/public/icon/arrow-left.svg";
 import ArrowRight from "@/public/icon/arrow-right.svg";
 import Quotes from "@/public/icon/quotes.svg";
-const InfoData = [
-  {
-    id: 1,
-    number: "01",
-    title: "Innovation and Agility",
-    name: "Integrity and Trust",
-    content:
-      "Integrity is at the heart of everything we do. We earn trust through transparency, honesty, and ethical practices, ensuring that our clients’ interests always come first.",
-  },
-  {
-    id: 2,
-    number: "02",
-    title: "Global Perspective with Local Insight",
-    name: "Innovation and Agility",
-    content:
-      "The financial world is ever-evolving, and so are we. Our commitment to innovation and agility enables us to adapt to market changes, harnessing new opportunities for our clients.",
-  },
-  {
-    id: 3,
-    number: "03",
-    title: "Client-Centric Approach",
-    name: "Global Perspective with Local Insight",
-    content:
-      "Our extensive experience across diverse markets equips us with a unique global perspective, enriched by deep local insight. This combination allows us to offer comprehensive solutions to our clients.",
-  },
-  {
-    id: 4,
-    number: "04",
-    title: "Long-Term Commitment",
-    name: "Client-Centric Approach",
-    content:
-      "Our clients are our most valued partners. We focus on understanding their unique needs and aspirations, providing personalized strategies that drive success.",
-  },
-  {
-    id: 5,
-    number: "05",
-    title: "Excellence in Service",
-    name: "Long-Term Commitment",
-    content:
-      "We believe in building enduring relationships. Our approach is not transactional; it’s about creating lasting value and growth for our clients over time.",
-  },
-  {
-    id: 6,
-    number: "06",
-    title: "Resilience and Adaptability",
-    name: "Excellence in Service",
-    content:
-      "We strive for excellence in every aspect of our service. Our team’s expertise and dedication ensure that we consistently deliver superior results and exceed expectations.",
-  },
-  {
-    id: 7,
-    number: "07",
-    title: "Integrity and Trust",
-    name: "Resilience and Adaptability",
-    content:
-      "In an ever-changing world, resilience is key. We are adept at navigating challenges, turning obstacles into opportunities for growth and success.",
-  },
-];
+import { InfoData } from "@/constants/data";
+
 const ValuesSection = () => {
   const ref = useRef(null);
 
@@ -129,20 +73,18 @@ const ValuesSection = () => {
           <div className="grid auto-rows-auto gap-1 lg:grid-cols-12 lg:gap-x-[20px]">
             <div className="lg:col-span-5 lg:grid lg:grid-rows-4 flex flex-col order-1 lg:order-3">
               <motion.span
-                className="row-span-1 lg:text-end"
+                className="row-span-1 lg:text-end text-h3"
                 style={{
                   y: slowY,
-                  fontSize: `calc(0.87375rem + 11.6679vw)`,
                   lineHeight: 1,
                 }}
               >
                 02
               </motion.span>
               <motion.span
-                className="row-span-3"
+                className="row-span-3 text-h3"
                 style={{
                   y: slowY,
-                  fontSize: `calc(0.87375rem + 11.6679vw)`,
                   lineHeight: 1,
                 }}
               >
@@ -152,8 +94,7 @@ const ValuesSection = () => {
             <div className="hidden lg:block lg:col-span-2 lg:order-2"></div>
             <div className="lg:col-span-5 lg:grid lg:grid-rows-4 order-2 lg:order-1">
               <p
-                className="font-ppmori  lg:col-span-5 lg:row-start-2 lg:row-end-5"
-                style={{ fontSize: `calc(.76125rem + 1.06071vw)` }}
+                className="text-h6 font-ppmori  lg:col-span-5 lg:row-start-2 lg:row-end-5"
               >
                 At Vela Capitals, our values are the guiding stars that
                 illuminate our path towards excellence. They are not just
@@ -204,9 +145,8 @@ const ValuesSection = () => {
                 animate="center"
                 exit="exit"
                 transition={{ duration: 0.4 }}
-                className="mt-[1em] text-white-cream font-light"
+                className="mt-[1em] text-white-cream font-light text-p1"
                 style={{
-                  fontSize: "calc(.7575rem + .70714vw)",
                   lineHeight: 1.4,
                 }}
               >
@@ -222,8 +162,7 @@ const ValuesSection = () => {
                   <ArrowLeft className="w-[37px] h-[37px] text-[#f85a3e] overflow-visible" />
                 </div>
                 <p
-                  className="text-black font-light"
-                  style={{ fontSize: `calc(.75375rem + .35357vw);` }}
+                  className="text-black font-light text-p2"
                 >
                   {currentInfo?.number} / 07
                 </p>
@@ -243,7 +182,7 @@ const ValuesSection = () => {
                         animate="center"
                         exit="exit"
                         transition={{ duration: 0.4 }}
-                        style={{ fontSize: "calc(.7575rem + .70714vw)" }}
+                        className="text-p1"
                       >
                         {currentInfo?.title}
                       </motion.p>
@@ -276,19 +215,17 @@ const ValuesSection = () => {
             <Quotes className="size-4 lg:size-7" />
             <span
               ref={textRef}
-              className="mt-[0.5em] text-center md:w-[400px] lg:w-full"
+              className="text-h5 mt-[0.5em] text-center md:w-[400px] lg:w-full"
               style={{
                 lineHeight: 1.1,
-                fontSize: "calc(.80125rem + 4.83214vw)",
               }}
             >
               Trust is built with consistency
             </span>
             <span
-              className="mt-[0.5em] text-center font-semibold"
+              className="text-p1 mt-[0.5em] text-center font-semibold"
               style={{
                 lineHeight: 1.1,
-                fontSize: "calc(.7575rem + .70714vw)",
               }}
             >
               Lincoln Chafee

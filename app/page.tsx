@@ -4,7 +4,6 @@ import {
   useScroll,
   motion,
   useTransform,
-  useMotionValue,
   useMotionValueEvent,
 } from "framer-motion";
 import Header from "@/sections/Header";
@@ -13,7 +12,6 @@ import AboutSection from "@/sections/AboutSection";
 import ValuesSection from "@/sections/ValuesSection";
 import GroupHover from "@/components/GroupHover";
 import ProductsSection from "@/sections/ProductsSection";
-import AText from "@/public/icon/a.svg";
 import TargetSection from "@/sections/TargetSection";
 import Footer from "@/sections/Footer";
 export default function Home() {
@@ -63,15 +61,13 @@ export default function Home() {
       </section>
       <Header isProductsInView={isProductsActive} />
 
-      {/* Progress Bar */}
       <motion.div
         style={{
           opacity: combinedOpacity,
         }}
         className="hidden lg:block fixed bottom-0 left-0 w-full bg-transparent hover:bg-[#f54f32] z-50 py-8 group"
       >
-        {/* About Section */}
-        <div className="py-0 px-[6.3281vw] grid grid-cols-4 gap-8">
+        <div className="px-[6.3281vw] grid grid-cols-4 gap-8">
           <div className="flex flex-col">
             <GroupHover number="(01)" title="About" />
             <div className="w-full h-1 bg-white/50">
@@ -81,8 +77,6 @@ export default function Home() {
               />
             </div>
           </div>
-
-          {/* Values Section */}
           <div className="flex flex-col">
             <GroupHover number="(02)" title="Values" />
             <div className="w-full h-1 bg-white/50">
@@ -92,8 +86,6 @@ export default function Home() {
               />
             </div>
           </div>
-
-          {/* Placeholder for future sections */}
           <div className="flex flex-col">
             <GroupHover number="(03)" title="Products" />
             <div className="w-full h-1 bg-white/50">
@@ -103,7 +95,6 @@ export default function Home() {
               />
             </div>
           </div>
-
           <div className="flex flex-col">
             <GroupHover number="(04)" title="Target Markets" />
             <div className="w-full h-1 bg-white/50">
@@ -116,11 +107,9 @@ export default function Home() {
         </div>
       </motion.div>
 
-      {/* Sections */}
       <section ref={aboutRef}>
         <AboutSection />
       </section>
-
       <section ref={valuesRef}>
         <ValuesSection />
       </section>

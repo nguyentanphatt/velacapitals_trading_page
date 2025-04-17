@@ -132,8 +132,7 @@ const Footer = () => {
                   <Fragment key={idx}>
                     <div className="inline-flex items-center justify-center px-4">
                       <span
-                        className="text-white-cream"
-                        style={{ fontSize: "calc(.8925rem + 13.43571vw)" }}
+                        className="text-white-cream text-h1"
                       >
                         Relationships over Transactions
                       </span>

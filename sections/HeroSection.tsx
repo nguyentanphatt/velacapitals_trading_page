@@ -14,12 +14,10 @@ const HeroSection = () => {
 
     return () => lenis.destroy();
   }, []);
-  const [showHero, setShowHero] = useState(false);
   return (
     <div className="bg-[#191810] relative">
       {
         <AnimatePresence>
-          {!showHero && (
             <>
               <motion.div
                 initial={{ y: "100%" }}
@@ -34,7 +32,6 @@ const HeroSection = () => {
                 className="absolute top-0 left-0 w-full h-screen bg-[#191810] z-30"
               />
             </>
-          )}
         </AnimatePresence>
       }
       <Hero />
@@ -70,11 +67,6 @@ const CenterImage = () => {
   const baseWidth = windowWidth * 0.25;
   const baseHeight = windowHeight * 0.25;
 
-  const opacity = useTransform(
-    scrollY,
-    [SECTION_HEIGHT, SECTION_HEIGHT + 300],
-    [1, 0]
-  );
   const scale = useTransform(
     scrollY,
     [0, SECTION_HEIGHT],
@@ -98,16 +90,14 @@ const CenterImage = () => {
               className="flex items-center md:justify-between gap-8 w-full"
             >
               <p
-                className="text-[#f4ecd7] font-ppmori-light w-[340px]"
-                style={{ fontSize: `calc(.7525rem + .23571vw)` }}
+                className="text-[#f4ecd7] font-ppmori-light w-[340px] text-p3"
               >
                 <span className="font-semibold">Vela Capitals</span> is a
                 trading and brokerage firm specializing in Agricultural and
                 Industrial Commodities
               </p>
               <p
-                style={{ fontSize: `calc(.7575rem + .70714vw)` }}
-                className="text-red-600"
+                className="text-red-600 text-p1"
               >
                 EN
               </p>
@@ -115,13 +105,11 @@ const CenterImage = () => {
           </div>
         </div>
 
-        <div className="flex flex-col justify-center items-center h-full z-30">
+        <div className="flex flex-col justify-center items-center h-full z-30 text-[#f4ecd7] text-h4">
           <motion.span
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 1, delay: 0.7 }}
-            className="text-[#f4ecd7]"
-            style={{ fontSize: `calc(.8175rem + 6.36429vw)` }}
           >
             Relationships
           </motion.span>
@@ -129,8 +117,6 @@ const CenterImage = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 1, delay: 1.1 }}
-            className="text-[#f4ecd7] "
-            style={{ fontSize: `calc(.8175rem + 6.36429vw)` }}
           >
             over
           </motion.span>
@@ -138,8 +124,6 @@ const CenterImage = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 1, delay: 1.6 }}
-            className="text-[#f4ecd7]"
-            style={{ fontSize: `calc(.8175rem + 6.36429vw)` }}
           >
             Transactions
           </motion.span>
