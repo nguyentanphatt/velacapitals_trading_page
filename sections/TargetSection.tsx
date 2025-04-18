@@ -153,16 +153,14 @@ const TargetSection = () => {
               style={{ paddingTop: "calc(.785rem + 3.3vw);" }}
             >
               <div className="w-[328px] h-full md:w-full">
-                <div className="relative">
+                <div className="relative overflow-x-hidden">
                   <motion.div
                     initial={false}
                     animate={{ x: isAnimating ? "0%" : "100%" }}
-                    //animate={{x:'100%'}}
                     transition={{ duration: 0.6, ease: "easeInOut" }}
                     className="absolute top-0 left-0 w-full h-full bg-[#191810] z-30 pointer-events-none"
                   />
                   <video
-                    //src={currentInfo?.video}
                     ref={videoRef}
                     autoPlay
                     loop
